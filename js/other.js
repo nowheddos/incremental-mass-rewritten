@@ -73,9 +73,9 @@ const POPUP_GROUPS = {
     },
     supernova10: {
         html: `
-            Congratulations!<br><br>You have becomed 10 Supernovas!<br>
-            And you can manualy supernova!<br><br>
-            <b>Bosons are unlocked in Supernova tab!</b>
+            Congrats!<br><br>You have gained 10 Supernovas!<br>
+            You can now manually supernova, and go past the star limit.<br><br>
+            <b>Bosons can now be unlocked in the Supernova tab.</b>
         `,
         width: 400,
         height: 150,
@@ -85,8 +85,8 @@ const POPUP_GROUPS = {
     },
     fermions: {
         html: `
-            Congratulations!<br><br>You have beated Challenge 10!<br><br>
-            <b>Fermions are unlocked in Supernova tab!</b>
+            Congratulations!<br><br>You have beat Challenge 10!<br><br>
+            <b>Fermions can now be unlocked in the Supernova tab.</b>
         `,
         width: 400,
         height: 150,
