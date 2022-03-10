@@ -53,26 +53,26 @@
     </div>
     <div id="supernova_scene" style='display: none'>
         <br>
-        <div id="sns1" style='font-size: 25px;'>You have become SUPERNOVA!</div><br>
-        <div id="sns2" style='font-size: 15px;'>But will reset everything, and gain SUPERNOVA!</div><br>
-        <div id="sns3" style='font-size: 15px;'>You can pass it...</div><br>
-        <div id="sns4" style='font-size: 20px;'>... to discover!</div><br>
-        <button class="btn" id="sns5" onclick="SUPERNOVA.reset()">You'll be Supernova...</button>
+        <div id="sns1" style='font-size: 25px;'>You have activated the SUPERNOVA!</div><br>
+        <div id="sns2" style='font-size: 15px;'>It will reset everything, and you will gain SUPERNOVA!</div><br>
+        <div id="sns3" style='font-size: 15px;'>You can go past it...</div><br>
+        <div id="sns4" style='font-size: 20px;'>... to discover new things!</div><br>
+        <button class="btn" id="sns5" onclick="SUPERNOVA.reset()">You'll gain the power of the Supernova...</button>
     </div>
     <div id='app_supernova' style='display: none'>
         <div style="position: absolute; top: 25px; left: 25px;">
             <button class="btn" onclick="tmp.tab = tmp.sn_tab;">Back to Main</button>
-            <button class="btn" onclick="SUPERNOVA.reset(true)">Reset without being Supernova</button>
+            <button class="btn" onclick="SUPERNOVA.reset(true)">Supernova Reset (No supernova gain)</button>
         </div>
         <div style="min-height: 70px; margin-top: 15px;">
-            <h2>You become <span id="supernova_rank"></span> <span id="supernova_scale"></span> Supernova</h2><br>
+            <h2>You become <span id="supernova_rank"></span> <span id="supernova_scale"></span> Supernovas</h2><br>
             Next Supernova at <span id="supernova_next">X</span> stars
         </div>
         <div style="width: 100%; border-bottom: solid 2px white; height: 5px; margin-bottom: 13px;"></div>
         <div id="sn_stabs" style="min-height: 40px;"></div><br>
         <div id="stab_frame5_0">
             <div style="height: 130px;">
-                You have <span id="neutronStar">X</span> Neutron star.<br>
+                You have <span id="neutronStar">X</span> Neutron stars.<br>
                 <div id="tree_desc" style="margin-top: 3px;">
     
                 </div>
@@ -85,47 +85,47 @@
             <div class="bosons">
                 <div class="table_center">
                     <div class="graviton sub_b">
-                        You have <span id="graviton_amt">X</span> Graviton, which speeds Bosons production by <span id="graviton_eff0">Y</span>
+                        You have <span id="graviton_amt">X</span> Graviton, which speeds up Boson production by <span id="graviton_eff0">Y</span>
                     </div>
                     <div class="higgs_boson sub_b">
-                        You have <span id="hb_amt">X</span> Higgs Boson, which raises Gravitons effect by <span id="hb_eff0">Y</span>
+                        You have <span id="hb_amt">X</span> Higgs Boson, which raises Gravitons' effect by <span id="hb_eff0">Y</span>
                     </div>
                 </div><div class="table_center">
                     <div class="photon sub_b">
-                        You have <span id="photon_amt">X</span> Photon<br><br>
+                        You have <span id="photon_amt">X</span> Photons<br><br>
                         <div id="photon_upgs_table" class="table_center"></div>
                     </div>
                     <div class="gluon sub_b">
-                        You have <span id="gluon_amt">X</span> Gluon<br><br>
+                        You have <span id="gluon_amt">X</span> Gluons<br><br>
                         <div id="gluon_upgs_table" class="table_center"></div>
                     </div>
                 </div><div class="table_center">
                     <div class="w_boson sub_b">
-                        You have <span id="pos_w_amt">X</span> W<sup>+</sup> Boson, which multiplies Mass gain by <span id="pos_w_eff0">Y</span>,<br> multiplies W<sup>-</sup> Bosons gain by <span id="pos_w_eff1">Y</span>
+                        You have <span id="pos_w_amt">X</span> W<sup>+</sup> Bosons, which multiply Mass gain by <span id="pos_w_eff0">Y</span>,<br> multiply W<sup>-</sup> Boson gain by <span id="pos_w_eff1">Y</span>
                         <br><br>
-                        You have <span id="neg_w_amt">X</span> W<sup>-</sup> Boson, which makes Mass gains softcap^2 starts ^<span id="neg_w_eff0">Y</span> later,<br> multiplies W<sup>+</sup> Bosons gain by <span id="neg_w_eff1">Y</span>
+                        You have <span id="neg_w_amt">X</span> W<sup>-</sup> Bosons, which makes Mass gain sqaured softcap start ^<span id="neg_w_eff0">Y</span> later,<br> multiply W<sup>+</sup> Boson gain by <span id="neg_w_eff1">Y</span>
                     </div>
                     <div class="z_boson sub_b">
-                        You have <span id="z_boson_amt">X</span> Z<sup>0</sup> Boson, which multiplies Tickspeed Power by <span id="z_boson_eff0">Y</span>,<br> multiplies W Bosons gain by <span id="z_boson_eff1">Y</span>
+                        You have <span id="z_boson_amt">X</span> Z<sup>0</sup> Bosons, which multiply Tickspeed Power by <span id="z_boson_eff0">Y</span>,<br> multiply W Boson gain by <span id="z_boson_eff1">Y</span>
                     </div>
                 </div>
             </div>
         </div><div id="stab_frame5_2">
-            Note: Choosing any fermion will reset without being Supernova!<br><br>
+            Note: Choosing any fermion will activate a Supernova reset!<br><br>
             <button class="btn" onclick="FERMIONS.backNormal()">Back to Normal</button><br><br>
             <div class="fermions">
                 <div class="f_quark sub_f">
-                    You have <span id="fquarkAmt">X</span> U-Quark<br><br>
+                    You have <span id="fquarkAmt">X</span> U-Quarks<br><br>
                     <div id="fermions_quark_table" class="table_center"></div>
                 </div>
                 <div class="f_lepton sub_f">
-                    You have <span id="fleptonAmt">X</span> U-Lepton<br><br>
+                    You have <span id="fleptonAmt">X</span> U-Leptons<br><br>
                     <div id="fermions_lepton_table" class="table_center"></div>
                 </div>
             </div>
         </div><div id="stab_frame5_3">
-            Your frequency is <span id="frequency">0</span> Hz, which multiples any Fermions gain by <span id="frequency_eff">1</span>x<br>
-            At <span id="next_radiation">0</span> of frequency, unlock <span id="unl_radiation">X</span><br><br>
+            Your frequency is <span id="frequency">0</span> Hz, which multiples any Fermion gain by <span id="frequency_eff">1</span>x<br>
+            At <span id="next_radiation">0</span> frequency, unlock <span id="unl_radiation">X</span><br><br>
             <div id="radiation_table"></div>
         </div>
     </div>
@@ -192,12 +192,12 @@
                         Tickspeed Effect: <span id="tickspeed_eff">X</span>x to mass gain
                     </div>
                 </div><br><div>
-                    <span id="massSoft1" class="red">After <b id="massSoftStart1">X</b> of mass gain will softcap mass gain!</span><br>
-                    <span id="massSoft3" style="color: rgb(121, 0, 0)">After <b id="massSoftStart3">X</b> of mass gain will softcap^2 mass gain!</span><br>
-                    <span id="massSoft4" style="color: rgb(122, 0, 86)">After <b id="massSoftStart4">X</b> of mass gain will softcap^3 mass gain!</span>
+                    <span id="massSoft1" class="red">After <b id="massSoftStart1">X</b> of mass gain, it will softcap!</span><br>
+                    <span id="massSoft3" style="color: rgb(121, 0, 0)">After <b id="massSoftStart3">X</b> of mass gain, it will squared softcap!</span><br>
+                    <span id="massSoft4" style="color: rgb(122, 0, 86)">After <b id="massSoftStart4">X</b> of mass gain, it will cubed softcap!</span>
                 </div>
             </div><div id="stab_frame0_1">
-                You have <span id="bhMass2">X</span> of Black Hole<br>
+                You have <span id="bhMass2">X</span> of Black Hole matter<br>
                 <span class="green">Which multiplies mass gain by <span id="bhEffect">X</span></span><br><br>
                 Black Hole mass's gain formula - (x + 1)<sup id="bhMassPower">0.33</sup> * <span id="bhCondenserEffect">X</span><br><br>
                 <div style="width: 100%; margin-bottom: 5px;" class="table_center">
@@ -206,7 +206,7 @@
                             <img src="images/bhCondenser.png">
                             <span style="margin-left: 5px; text-align: left;"><span id="bhCondenser_scale"></span>Black Hole Condensers [<span id="bhCondenser_lvl">X</span>]</span>
                         </div>
-                    </div><button id="bhCondenser_btn" class="btn" style="width: 200px;" onclick="FORMS.bh.condenser.buy()">Cost: <span id="bhCondenser_cost">X</span> Dark Matters</button>
+                    </div><button id="bhCondenser_btn" class="btn" style="width: 200px;" onclick="FORMS.bh.condenser.buy()">Cost: <span id="bhCondenser_cost">X</span> Dark Matter</button>
                     <button class="btn" style="width: 120px;" onclick="FORMS.bh.condenser.buyMax()">Buy Max</button>
                     <button id="bhCondenser_auto" class="btn" style="width: 80px;" onclick="FORMS.bh.condenser.autoSwitch()">OFF</button>
                     <div style="margin-left: 5px; text-align: left; width: 400px">
@@ -233,7 +233,7 @@
                     </div>
                 </div>
             </div><div id="stab_frame0_3">
-                You collapsed <span id="stars_Amt">X</span> stars, which makes mass gain is multiplied based on every type of Ranks<br>
+                You collapsed <span id="stars_Amt">X</span> stars, multiplying mass gain based on every type of Rank<br>
                 <span class="green">Currently: <span id="stars_Eff">X</span>x</span><br><br>
                 <button id="star_btn" class="btn" onclick="STARS.generators.unl()">X</button><br><br>
                 <div id="stars_table" class="table_center"></div><br><br>
@@ -251,7 +251,7 @@
             <div id="main_upg_msg" style="min-height: 100px;"></div>
             <div id="main_upgs_table" class="table_center"></div>
         </div><div id="tab_frame3">
-            Hint: Click any image to show challenge description. Click again to enter any challenge<br><br>
+            Hint: Click any image to show its challenge description. Click again to enter any challenge.<br><br>
             <button class="btn" id="chal_exit" onclick="CHALS.exit()">Exit Challenge</button><br><br>
             <div style="min-height: 120px;" id="chals_table" class="table_center"></div><br><br>
             <div id="chal_desc_div">
@@ -292,7 +292,7 @@
             </div>
         </div><div id="tab_frame6">
             <button class="btn" onclick="save()">Save</button>
-            <button class="btn" onclick="if (confirm('Are you sure you want to RESET your progress to new game?')) {wipe(true)}">Hard Reset</button>
+            <button class="btn" onclick="if (confirm('Are you sure you want to PERMANENTLY RESET your progress?')) {wipe(true)}">Hard Reset</button>
             <button class="btn" onclick="exporty()">Export</button>
             <button class="btn" onclick="export_copy()">Export to clipboard</button>
             <button class="btn" onclick="importy()">Import</button>
