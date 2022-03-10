@@ -69,7 +69,7 @@ const MASS_DILATION = {
                 },
                 effDesc(x) { return format(x,0)+"x"+(x.gte('e1.2e4')?` <span class='soft'>(softcapped${x.gte('e2e400')?"^2":""})</span>`:"")},
             },{
-                desc: `Make dilated mass effect stronger.`,
+                desc: `Make the dilated mass effect stronger.`,
                 cost(x) { return E(10).pow(x).mul(100) },
                 bulk() { return player.md.mass.gte(100)?player.md.mass.div(100).max(1).log10().add(1).floor():E(0) },
                 effect(x) {
@@ -83,14 +83,14 @@ const MASS_DILATION = {
                 effect(x) { return E(2).pow(x.mul(tmp.md.upgs[11].eff||1)).softcap(1e25,0.75,0) },
                 effDesc(x) { return format(x,0)+"x"+(x.gte(1e25)?" <span class='soft'>(softcapped)</span>":"") },
             },{
-                desc: `Dilated mass also boost Stronger's power.`,
+                desc: `Dilated mass also boosts Stronger's power.`,
                 maxLvl: 1,
                 cost(x) { return E(1.619e20).mul(25) },
                 bulk() { return player.md.mass.gte(E(1.619e20).mul(25))?E(1):E(0) },
                 effect(x) { return player.md.mass.max(1).log(100).root(3).div(8).add(1) },
                 effDesc(x) { return format(x)+"x" },
             },{
-                desc: `Mass Dilation upgrade 3 scales 10% weaker.`,
+                desc: `Mass Dilation upgrade 3 scaling is 10% weaker.`,
                 maxLvl: 5,
                 cost(x) { return E(1e5).pow(x).mul(E(1.619e20).mul(1e4)) },
                 bulk() { return player.md.mass.gte(E(1.619e20).mul(1e4))?player.md.mass.div(E(1.619e20).mul(1e4)).max(1).log(1e5).add(1).floor():E(0) },
@@ -108,7 +108,7 @@ const MASS_DILATION = {
                 },
                 effDesc(x) { return "+^"+format(x)+(x.gte(1e3)?" <span class='soft'>(softcapped)</span>":"") },
             },{
-                desc: `Dilated mass boost quarks gain.`,
+                desc: `Dilated mass boosts quark gain.`,
                 maxLvl: 1,
                 cost(x) { return E(1.5e191) },
                 bulk() { return player.md.mass.gte(1.5e191)?E(1):E(0) },
@@ -121,7 +121,7 @@ const MASS_DILATION = {
                 bulk() { return player.md.mass.gte(1.5e246)?E(1):E(0) },
             },{
                 unl() { return STARS.unlocked() || player.supernova.times.gte(1) },
-                desc: `Tickspeed affect all-star resources at a reduced rate.`,
+                desc: `Tickspeed affects collapsed star gain at a reduced rate.`,
                 maxLvl: 1,
                 cost(x) { return E(1.5e296) },
                 bulk() { return player.md.mass.gte(1.5e296)?E(1):E(0) },
@@ -129,7 +129,7 @@ const MASS_DILATION = {
                 effDesc(x) { return format(x)+"x" },
             },{
                 unl() { return STARS.unlocked() || player.supernova.times.gte(1) },
-                desc: `Double quarks gain.`,
+                desc: `Double quark production.`,
                 cost(x) { return E(5).pow(x).mul('1.50001e536') },
                 bulk() { return player.md.mass.gte('1.50001e536')?player.md.mass.div('1.50001e536').max(1).log(5).add(1).floor():E(0) },
                 effect(x) {
@@ -138,7 +138,7 @@ const MASS_DILATION = {
                 effDesc(x) { return format(x)+"x"+(x.gte(1e25)?" <span class='soft'>(softcapped)</span>":"") },
             },{
                 unl() { return player.supernova.times.gte(1) },
-                desc: `Add 0.015 Mass Dilation upgrade 6's base.`,
+                desc: `Add 0.015 to Mass Dilation upgrade 6's base.`,
                 cost(x) { return E(1e50).pow(x.pow(1.5)).mul('1.50001e1556') },
                 bulk() { return player.md.mass.gte('1.50001e1556')?player.md.mass.div('1.50001e1556').max(1).log(1e50).max(0).root(1.5).add(1).floor():E(0) },
                 effect(x) {
@@ -206,7 +206,7 @@ function updateMDHTML() {
     tmp.el.md_eff.setTxt(tmp.md.mass_eff.gte(10)?format(tmp.md.mass_eff)+"x":format(tmp.md.mass_eff.sub(1).mul(100))+"%")
     tmp.el.md_mass.setTxt(formatMass(player.md.mass)+" "+formatGain(player.md.mass,tmp.md.mass_gain,true))
     tmp.el.md_btn.setTxt(player.md.active
-        ?(tmp.md.rp_gain.gte(1)?`Cancel for ${format(tmp.md.rp_gain,0)} Relativistic particles`:`Reach ${formatMass(tmp.md.mass_req)} to gain Relativistic particles, or cancel dilation`)
+        ?(tmp.md.rp_gain.gte(1)?`Stop dilating for ${format(tmp.md.rp_gain,0)} Relativistic particles`:`Reach ${formatMass(tmp.md.mass_req)} to gain Relativistic particles or click to cancel dilation`)
         :"Dilate Mass"
     )
     for (let x = 0; x < MASS_DILATION.upgs.ids.length; x++) {
