@@ -76,14 +76,14 @@ const RADIATION = {
                 let x = b.add(1).root(2)
                 return x
             },
-            desc(x) { return `Non-bonus tickspeed is ${format(x)}x stronger` },
+            desc(x) { return `Non-bonus tickspeeds are ${format(x)}x stronger` },
         },{
             title: `Mass-Softcap Boost`,
             eff(b) {
                 let x = b.add(1).root(4)
                 return x
             },
-            desc(x) { return `Softcap^3 from mass gain start ^${format(x)} later` },
+            desc(x) { return `Cubed Softcap of mass gain starts ^${format(x)} later` },
         },{
             title: `Microwave Boost`,
             eff(b) {
@@ -104,7 +104,7 @@ const RADIATION = {
                 let x = b.add(1).pow(2)
                 return x.softcap(100,0.5,0)
             },
-            desc(x) { return `Non-bonus BH condenser is ${format(x)}x stronger` },
+            desc(x) { return `Non-bonus BH condensers are ${format(x)}x stronger` },
         },{
             title: `Infrared Boost`,
             eff(b) {
@@ -146,7 +146,7 @@ const RADIATION = {
                 let x = player.supernova.radiation.hz.add(1).log10().add(1).pow(b)
                 return x
             },
-            desc(x) { return `Neutron Star is boosted by ${format(x)}x (based on Frequency)` },
+            desc(x) { return `Neutron Stars are boosted by ${format(x)}x (based on Frequency)` },
         },{
             title: `Ultraviolet Boost`,
             eff(b) {
