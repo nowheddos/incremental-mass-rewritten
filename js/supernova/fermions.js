@@ -15,7 +15,7 @@ const FERMIONS = {
         }
     },
     choose(i,x) {
-        if (player.confirms.sn) if (!confirm("Are you sure to switch any type of any Fermion?")) return
+        if (player.confirms.sn) if (!confirm("Are you sure you want to switch any type of any Fermion?")) return
         let id = i+""+x
         if (player.supernova.fermions.choosed != id) {
             player.supernova.fermions.choosed = id
@@ -130,7 +130,7 @@ const FERMIONS = {
                     return `Z<sup>0</sup> Boson's first effect is ${format(x.sub(1).mul(100))}% stronger`+(x.gte(5)?" <span class='soft'>(softcapped)</span>":"")
                 },
                 inc: "Mass",
-                cons: "You are trapped in Mass Dilation, but they are twice effective",
+                cons: "You are trapped in Mass Dilation, but they are twice as effective",
                 isMass: true,
             },{
                 maxTier: 15,
@@ -221,7 +221,7 @@ const FERMIONS = {
                     return `Tickspeed is ${format(x)}x cheaper (before Meta scaling)`
                 },
                 inc: "Dark Matter",
-                cons: "You are trapped in Challenges 8-9",
+                cons: "You are trapped in Challenges 8 and 9",
             },{
                 maxTier: 15,
                 nextTierAt(x) {
