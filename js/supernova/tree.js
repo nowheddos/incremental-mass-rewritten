@@ -31,7 +31,7 @@ const TREE_UPGS = {
     },
     ids: {
         c: {
-            desc: `Start generating 0.1 Neutron Star per second (not affected by offline production).`,
+            desc: `Start generating 0.1 Neutron Stars per second (not affected by offline production).`,
             cost: E(0),
         },
         sn1: {
@@ -56,7 +56,7 @@ const TREE_UPGS = {
         },
         sn3: {
             branch: ["sn2"],
-            desc: `Blue star boost Neutron star gain at a reduced rate.`,
+            desc: `Blue star boosts Neutron star gain at a reduced rate.`,
             req() { return player.supernova.times.gte(6) },
             reqDesc: `6 Supernovas.`,
             cost: E(50000),
@@ -68,7 +68,7 @@ const TREE_UPGS = {
         },
         sn4: {
             branch: ["sn3"],
-            desc: `Tree “sn2”'s effect base is increased by Supernova.`,
+            desc: `Node sn2's effect base is increased by Supernova.`,
             unl() { return player.supernova.post_10 },
             req() { return player.supernova.times.gte(13) },
             reqDesc: `13 Supernovas.`,
@@ -81,7 +81,7 @@ const TREE_UPGS = {
         },
         m1: {
             branch: ["c"],
-            desc: `Neutron star multiplies Mass gain.`,
+            desc: `Neutron stars multiply Mass gain.`,
             cost: E(100),
             effect() {
                 let x = E(1e100).pow(player.supernova.stars.add(1).log10().pow(5).softcap(1e3,0.25,0))
@@ -91,13 +91,13 @@ const TREE_UPGS = {
         },
         m2: {
             branch: ["m1"],
-            desc: `Multiplies the Mass requirement for softcap^2 by 1.5`,
+            desc: `Multiplies the Mass requirement for Squared Softcap by 1.5`,
             cost: E(800),
         },
         m3: {
             branch: ["m2"],
             unl() { return player.supernova.fermions.unl && player.supernova.tree.includes("fn1") },
-            desc: `Mass gain softcap^2-3 starts later based on Supernovas.`,
+            desc: `Mass gain Squared Softcap-3 starts later based on Supernovas.`,
             cost: E(1e46),
             effect() {
                 let x = player.supernova.times.mul(0.0125).add(1)
@@ -108,13 +108,13 @@ const TREE_UPGS = {
         t1: {
             branch: ["m1", 'rp1'],
             req() { return player.supernova.chal.noTick && player.mass.gte(E("1.5e1.650056e6").pow(player.supernova.tree.includes('bh2')?1.46:1)) },
-            reqDesc() {return `Reach ${formatMass(E("1.5e1.650056e6").pow(player.supernova.tree.includes('bh2')?1.46:1))} without buying Tickspeed in Supernova run. You can still obtain Tickspeed from Cosmic Rays.`},
-            desc: `Tickspeed Power is raised to the 1.15th.`,
+            reqDesc() {return `Reach ${formatMass(E("1.5e1.650056e6").pow(player.supernova.tree.includes('bh2')?1.46:1))} without buying Tickspeed in a Supernova run. You can still obtain Tickspeed from Cosmic Rays.`},
+            desc: `Tickspeed Power is raised to the 1.15.`,
             cost: E(1500),
         },
         rp1: {
             branch: ["c"],
-            desc: `Neutron Stars multiplies Rage Powers gain`,
+            desc: `Neutron Stars multiply Rage Power gain`,
             cost: E(200),
             effect() {
                 let x = E(1e50).pow(player.supernova.stars.add(1).log10().pow(5).softcap(1e3,0.25,0))
@@ -124,7 +124,7 @@ const TREE_UPGS = {
         },
         bh1: {
             branch: ["c"],
-            desc: `Neutron Star multiplies Dark Matters gain.`,
+            desc: `Neutron Stars multiply Dark Matter gain.`,
             cost: E(400),
             effect() {
                 let x = E(1e35).pow(player.supernova.stars.add(1).log10().pow(5).softcap(1e3,0.25,0))
@@ -135,13 +135,13 @@ const TREE_UPGS = {
         bh2: {
             branch: ['bh1'],
             req() { return player.supernova.chal.noBHC && player.bh.mass.gte("1.5e1.7556e4") },
-            reqDesc() {return `Reach ${format("e1.75e4")} uni of black hole without buying any BH Condenser in Supernova run.`},
-            desc: `BH Condenser power is raised to the 1.15th.`,
+            reqDesc() {return `Reach ${format("e1.75e4")} uni of black hole without buying any BH Condensers in a Supernova run.`},
+            desc: `BH Condenser power is raised to the 1.15.`,
             cost: E(1500),
         },
         s1: {
             branch: ["c"],
-            desc: `Neutron Star boosts last star gain.`,
+            desc: `Neutron Stars boost rightmost star gain.`,
             cost: E(400),
             effect() {
                 let x = player.supernova.stars.add(1).pow(1.4)
@@ -153,7 +153,7 @@ const TREE_UPGS = {
             branch: ["s1"],
             req() { return player.supernova.times.gte(3) },
             reqDesc: `3 Supernovas.`,
-            desc: `Star boost's Tetr's softcap is 50% weaker.`,
+            desc: `Star boost's Tetr's softcap is 50% weaker.`, // No idea what this one means.
             cost: E(2500),
         },
         s3: {
@@ -172,7 +172,7 @@ const TREE_UPGS = {
             branch: ["s3"],
             req() { return player.supernova.times.gte(6) },
             reqDesc: `6 Supernovas.`,
-            desc: `Beyond unlocking stars, Star Unlocker will transform into Booster.`,
+            desc: `After unlocking all the stars, the Star Unlocker will transform into a Booster upgrade.`,
             cost: E(1e5),
         },
         qol1: {
@@ -192,7 +192,7 @@ const TREE_UPGS = {
             branch: ["qol2"],
             req() { return player.supernova.times.gte(4) },
             reqDesc: `4 Supernovas.`,
-            desc: `Start with Techntium-43 unlocked, improve their element better. You can automatically gain Relativistic particles from mass.`,
+            desc: `Start with Techntium-43 unlocked and boost it. You can automatically gain Relativistic particles from mass.`,
             cost: E(10000),
         },
         qol4: {
@@ -222,7 +222,7 @@ const TREE_UPGS = {
             unl() { return player.supernova.fermions.unl && player.supernova.tree.includes("fn2") },
             req() { return player.supernova.times.gte(40) },
             reqDesc: `40 Supernovas.`,
-            desc: `You can now automatically buy Photon & Gluon upgrades, they no longer spent their amount.`,
+            desc: `You can now automatically buy Photon & Gluon upgrades, they no longer spent anythinge.`,
             cost: E(1e48),
         },
         qol8: {
@@ -235,7 +235,7 @@ const TREE_UPGS = {
         chal1: {
             req() { return player.supernova.times.gte(4) },
             reqDesc: `4 Supernovas.`,
-            desc: `Add 100 more C7 & C8 maximum completions.`,
+            desc: `Add 100 more maximum C7 & C8 completions.`,
             cost: E(6000),
         },
         chal2: {
@@ -244,7 +244,7 @@ const TREE_UPGS = {
                 for (let x = 1; x <= 4; x++) if (player.chal.comps[x].gte(1)) return false
                 return player.mass.gte(E('e2.05e6').mul(1.5e56))
             },
-            reqDesc() { return `Reach ${format('e2.05e6')} uni without challenge 1-4 completions in Supernova run.` },
+            reqDesc() { return `Reach ${format('e2.05e6')} uni without any challenge 1-4 completions in a Supernova run.` },
             desc: `Keep challenge 1-4 completions on reset.`,
             cost: E(1e4),
         },
@@ -254,7 +254,7 @@ const TREE_UPGS = {
                 for (let x = 5; x <= 8; x++) if (player.chal.comps[x].gte(1)) return false
                 return player.bh.mass.gte(E('e1.75e4').mul(1.5e56))
             },
-            reqDesc() { return `Reach ${format('e1.75e4')} uni of black hole without challenge 5-8 completions in Supernova run.` },
+            reqDesc() { return `Reach ${format('e1.75e4')} uni of black hole without any challenge 5-8 completions in a Supernova run.` },
             desc: `Keep challenge 5-8 completions on reset.`,
             cost: E(1e4),
         },
@@ -266,7 +266,7 @@ const TREE_UPGS = {
         chal4a: {
             unl() { return player.supernova.post_10 },
             branch: ["chal4"],
-            desc: `Make 9th Challenges effect better.`,
+            desc: `Make 9th Challenge's effect better.`,
             cost: E(1e8),
         },
         chal5: {
@@ -282,7 +282,7 @@ const TREE_UPGS = {
         },
         gr1: {
             branch: ["bh1"],
-            desc: `BH Condensers power boost Cosmic Rays power.`,
+            desc: `BH Condenser power boosts Cosmic Ray power.`,
             req() { return player.supernova.times.gte(7) },
             reqDesc: `7 Supernovas.`,
             cost: E(1e6),
@@ -295,14 +295,14 @@ const TREE_UPGS = {
         gr2: {
             unl() { return player.supernova.fermions.unl },
             branch: ["gr1"],
-            desc: `Cosmic Rays Power is raised to 1.25th power.`,
+            desc: `Cosmic Ray Power is raised to 1.25.`,
             cost: E(1e20),
         },
         bs1: {
             unl() { return player.supernova.post_10 },
             req() { return player.supernova.times.gte(15) },
             reqDesc: `15 supernovas`,
-            desc: `Tickspeed affect Higgs Bosons gain at a reduced rate.`,
+            desc: `Tickspeed affects Higgs Boson gain at a reduced rate.`,
             cost: E(1e13),
             effect() {
                 let x = player.tickspeed.add(1).pow(0.6)
@@ -312,7 +312,7 @@ const TREE_UPGS = {
         },
         bs2: {
             branch: ["bs1"],
-            desc: `Photon, Gluon powers up each other.`,
+            desc: `Photons and Gluons power up each other.`,
             cost: E(1e14),
             effect() {
                 let x = expMult(player.supernova.bosons.photon,1/2,2)
@@ -323,7 +323,7 @@ const TREE_UPGS = {
         },
         bs3: {
             branch: ["bs1"],
-            desc: `Neutrons gain is affected by Graviton's effect at a reduced rate.`,
+            desc: `Neutron gain is affected by Graviton's effect at a reduced rate.`,
             cost: E(1e14),
             effect() {
                 let x = tmp.bosons.effect.graviton[0].add(1).root(2)
@@ -334,13 +334,13 @@ const TREE_UPGS = {
         bs4: {
             unl() { return player.supernova.fermions.unl },
             branch: ["bs2"],
-            desc: `Raise Z Bosons gain to the 1.5th power.`,
+            desc: `Raise Z Bosons gain to the 1.5.`,
             cost: E(1e24),
         },
         fn1: {
             unl() { return player.supernova.fermions.unl },
             branch: ["bs1"],
-            desc: `Tickspeed affect each Fermions gain at a reduced rate.`,
+            desc: `Tickspeed affects each Fermions gain at a reduced rate.`,
             cost: E(1e27),
             effect() {
                 let x = E(1.25).pow(player.tickspeed.pow(0.4))
