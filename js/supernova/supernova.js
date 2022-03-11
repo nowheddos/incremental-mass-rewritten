@@ -1,6 +1,6 @@
 const SUPERNOVA = {
     reset(force=false, chal=false, post=false, fermion=false) {
-        if (!chal && !post && !fermion) if ((force && player.confirms.sn)?!confirm("Are you sure to reset without being Supernova?"):false) return
+        if (!chal && !post && !fermion) if ((force && player.confirms.sn)?!confirm("Are you sure to reset everything before Supernova?"):false) return
         if (tmp.supernova.reached || force || fermion) {
             tmp.el.supernova_scene.setDisplay(false)
             if (!force && !fermion) {
@@ -162,7 +162,7 @@ function calcSupernova(dt, dt_offline) {
     if (tmp.supernova.reached && (!tmp.offlineActive || player.supernova.times.gte(1)) && !player.supernova.post_10) {
         if (player.supernova.times.lte(0)) tmp.supernova.time += dt
         else {
-            addNotify("You become Supernova!")
+            addNotify("You absorbed the power of a Supernova!")
             SUPERNOVA.reset()
         }
     }
