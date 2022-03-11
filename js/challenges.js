@@ -99,9 +99,9 @@ const CHALS = {
         return formatMass
     },
     getReset(x) {
-        if (x < 5) return "Entering challenge will reset with Dark Matters!"
-        if (x < 9) return "Entering challenge will reset with Atoms except previous challenges!"
-        return "Entering challenge will reset without being Supernova!"
+        if (x < 5) return "Entering challenge will perform a Dark Matter reset!"
+        if (x < 9) return "Entering challenge will perform an Atoms reset! (except previous challenge completions)"
+        return "Entering challenge will perform a Supernova reset!"
     },
     getMax(i) {
         let x = this[i].max
@@ -222,7 +222,7 @@ const CHALS = {
     },
     1: {
         title: "Instant Scale",
-        desc: "Super Ranks, Mass Upgrades starts at 25. In addtional, Super Tickspeed start at 50.",
+        desc: "Super Ranks and Super Mass Upgrades start at 25. In addtional, Super Tickspeed starts at 50.",
         reward: `Super Ranks starts later, Super Tickspeed scaling weaker by completions.`,
         max: E(100),
         inc: E(5),
@@ -233,13 +233,13 @@ const CHALS = {
             let tick = E(0.96).pow(x.root(2))
             return {rank: rank, tick: tick}
         },
-        effDesc(x) { return "+"+format(x.rank,0)+" later to Super Ranks, Super Tickspeed scaling "+format(E(1).sub(x.tick).mul(100))+"% weaker" },
+        effDesc(x) { return "+"+format(x.rank,0)+" later Super Ranks, Super Tickspeed scaling "+format(E(1).sub(x.tick).mul(100))+"% weaker" },
     },
     2: {
         unl() { return player.chal.comps[1].gte(1) || player.atom.unl },
         title: "Anti-Tickspeed",
         desc: "You cannot buy Tickspeed.",
-        reward: `For every completions adds +7.5% to Tickspeed Power.`,
+        reward: `Each completion adds +7.5% to Tickspeed Power.`,
         max: E(100),
         inc: E(10),
         pow: E(1.3),
@@ -257,7 +257,7 @@ const CHALS = {
         unl() { return player.chal.comps[2].gte(1) || player.atom.unl },
         title: "Melted Mass",
         desc: "Mass gain softcap is divided by 1e150, and is stronger.",
-        reward: `Mass gain are raised by completions, but cannot append while in this challenge!`,
+        reward: `Mass gain is raised by completions, but has no effect while in this challenge!`,
         max: E(100),
         inc: E(25),
         pow: E(1.25),
@@ -272,8 +272,8 @@ const CHALS = {
     4: {
         unl() { return player.chal.comps[3].gte(1) || player.atom.unl },
         title: "Weakened Rage",
-        desc: "Rage Points gain is rooted by 10. In addtional, mass gain softcap is divided by 1e100.",
-        reward: `Rage Powers gain are raised by completions.`,
+        desc: "Rage Power gain is rooted by 10. Plus, mass gain softcap is divided by 1e100.",
+        reward: `Rage Power gain is raised by completions.`,
         max: E(100),
         inc: E(30),
         pow: E(1.25),
@@ -289,7 +289,7 @@ const CHALS = {
         unl() { return player.atom.unl },
         title: "No Rank",
         desc: "You cannot rank up.",
-        reward: `Rank requirement are weaker by completions.`,
+        reward: `Rank requirement is weaker by completions.`,
         max: E(50),
         inc: E(50),
         pow: E(1.25),
@@ -303,8 +303,8 @@ const CHALS = {
     6: {
         unl() { return player.chal.comps[5].gte(1) || player.supernova.times.gte(1) },
         title: "No Tickspeed & Condenser",
-        desc: "You cannot buy Tickspeed & BH Condenser.",
-        reward: `For every completions adds +10% to Tickspeed & BH Condenser Power.`,
+        desc: "You cannot buy Tickspeed or BH Condensers.",
+        reward: `Each completion adds +10% to Tickspeed & BH Condenser Power.`,
         max: E(50),
         inc: E(64),
         pow: E(1.25),
@@ -318,8 +318,8 @@ const CHALS = {
     7: {
         unl() { return player.chal.comps[6].gte(1) || player.supernova.times.gte(1) },
         title: "No Rage Powers",
-        desc: "You cannot gain Rage Powers, but Dark Matters are gained by mass instead of Rage Powers at a reduced rate.<br>In addtional, mass gain softcap is stronger.",
-        reward: `Completions adds 2 maximum completions of 1-4 Challenge.<br><span class="yellow">On 16th completion, unlock Elements</span>`,
+        desc: "You cannot gain Rage Powers, but Dark Matter is gained by mass instead of Rage Power at a reduced rate.<br>Mass gain softcap is stronger.",
+        reward: `Completions add 2 maximum completions of challenges 1-4.<br><span class="yellow">On 16th completion, unlock Elements</span>`,
         max: E(50),
         inc: E(64),
         pow: E(1.25),
@@ -334,7 +334,7 @@ const CHALS = {
     8: {
         unl() { return player.chal.comps[7].gte(1) || player.supernova.times.gte(1) },
         title: "White Hole",
-        desc: "Dark Matter & Mass from Black Hole gains are rooted by 8.",
+        desc: "Dark Matter & Mass from Black Hole are rooted by 8.",
         reward: `Dark Matter & Mass from Black Hole gains are raised by completions.<br><span class="yellow">On first completion, unlock 3 rows of Elements</span>`,
         max: E(50),
         inc: E(80),
@@ -349,9 +349,9 @@ const CHALS = {
     },
     9: {
         unl() { return player.supernova.tree.includes("chal4") },
-        title: "No Particles",
-        desc: "You cannot assign quarks. In addtional, mass gains exponent is raised to 0.9th power.",
-        reward: `Improve Magnesium-12 better.`,
+        title: "No Particles", // No particles?
+        desc: "You cannot assign quarks. Mass gain exponent is raised to 0.9th power.",
+        reward: `Improve Magnesium-12.`,
         max: E(100),
         inc: E('e500'),
         pow: E(2),
@@ -364,9 +364,9 @@ const CHALS = {
     },
     10: {
         unl() { return player.supernova.tree.includes("chal5") },
-        title: "The Reality I",
-        desc: "All challenges 1-8 are applied at once. In addtional, you are trapped in Mass Dilation!",
-        reward: `The exponent of the RP formula is multiplied by completions. (this effect doesn't work while in this challenge)<br><span class="yellow">On first completion, unlock Fermions!</span>`,
+        title: "Reality I",
+        desc: "All previous challenges are applied at once. You are also trapped in Mass Dilation!",
+        reward: `The exponent of the RP formula is multiplied by completions. (Doesn't apply while in this challenge)<br><span class="yellow">On first completion, unlock Fermions!</span>`,
         max: E(100),
         inc: E('e2000'),
         pow: E(2),
@@ -380,7 +380,7 @@ const CHALS = {
     11: {
         unl() { return player.supernova.tree.includes("chal6") },
         title: "Absolutism",
-        desc: "You cannot gain relativistic particles or dilated mass. However, you are stuck in Mass Dilation.",
+        desc: "You cannot gain relativistic particles or dilated mass. You are also stuck in Mass Dilation.",
         reward: `Star Booster is stonger by completions.`,
         max: E(100),
         inc: E("ee6"),
