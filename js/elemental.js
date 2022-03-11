@@ -41,15 +41,15 @@ const ELEMENTS = {
     upgs: [
         null,
         {
-            desc: `Improves quark gain formula is better.`,
+            desc: `Improves quark gain formula.`,
             cost: E(5e8),
         },
         {
-            desc: `Hardened Challenge scale 25% weaker.`,
+            desc: `Hardened Challenge scales 25% weaker.`,
             cost: E(2.5e12),
         },
         {
-            desc: `Electron Power boost Atomic Powers gain.`,
+            desc: `Electron Power boosts Atomic Power gain.`,
             cost: E(1e15),
             effect() {
                 let x = player.atom?player.atom.powers[2].add(1).root(2):E(1)
@@ -59,7 +59,7 @@ const ELEMENTS = {
             effDesc(x) { return format(x)+"x"+(x.gte('e1e4')?" <span class='soft'>(softcapped)</span>":"") },
         },
         {
-            desc: `Stronger's power is stronger based on Proton Powers.`,
+            desc: `Stronger's power is improved based on Proton Powers.`,
             cost: E(2.5e16),
             effect() {
                 let x = player.atom?player.atom.powers[0].max(1).log10().pow(0.8).div(50).add(1):E(1)
@@ -68,7 +68,7 @@ const ELEMENTS = {
             effDesc(x) { return format(x)+"x stronger" },
         },
         {
-            desc: `The 7th challenge's effect is twice as effective.`,
+            desc: `The 7th challenge's reward is twice as effective.`,
             cost: E(1e18),
         },
         {
@@ -93,11 +93,11 @@ const ELEMENTS = {
             effDesc(x) { return format(x)+"x" },
         },
         {
-            desc: `C2's reward's softcap is 75% weaker.`,
+            desc: `C2 reward's softcap is 75% weaker.`,
             cost: E(1e21),
         },
         {
-            desc: `The Tetr requirement is 15% weaker.`,
+            desc: `The Tetr requirement is 15% less.`,
             cost: E(6.5e21),
         },
         {
@@ -109,7 +109,7 @@ const ELEMENTS = {
             cost: E(1e27),
         },
         {
-            desc: `Power's gain from each particle formula is better.`,
+            desc: `Particle Power gain is better.`,
             cost: E(1e29),
         },
         {
@@ -126,11 +126,11 @@ const ELEMENTS = {
             cost: E(1e33),
         },
         {
-            desc: `Super BH Condenser & Cosmic Ray scales 20% weaker.`,
+            desc: `Super BH Condenser & Cosmic Ray scales are 20% weaker.`,
             cost: E(1e34),
         },
         {
-            desc: `Silicon now gets +2% for each element bought.`,
+            desc: `Silicon gets +2% for each element bought.`,
             cost: E(5e38),
             effect() {
                 let x = player.atom.elements.length*0.02
@@ -139,11 +139,11 @@ const ELEMENTS = {
             effDesc(x) { return "+"+format(x*100)+"%" },
         },
         {
-            desc: `Raise Atom's gain by 1.1.`,
+            desc: `Raise Atom gain by 1.1.`,
             cost: E(1e40),
         },
         {
-            desc: `You can now automatically buy Cosmic Rays. Cosmic Ray raise tickspeed effect at an extremely reduced rate.`,
+            desc: `You can now automatically buy Cosmic Rays. Cosmic Rays raise the tickspeed effect at an extremely reduced rate.`,
             cost: E(1e44),
             effect() {
                 let x = player.atom.gamma_ray.pow(0.35).mul(0.01).add(1)
@@ -152,11 +152,11 @@ const ELEMENTS = {
             effDesc(x) { return "^"+format(x) },
         },
         {
-            desc: `2nd Neutron's effect is better.`,
+            desc: `Neutron's second effect is better.`,
             cost: E(1e50),
         },
         {
-            desc: `Adds 50 more C7 maximum completions.`,
+            desc: `Adds 50 more maximum C7 completions.`,
             cost: E(1e53),
         },
         {
@@ -177,7 +177,7 @@ const ELEMENTS = {
             cost: E(1e65),
         },
         {
-            desc: `Passively gain 100% of the atoms you would get from resetting each second. Atomic Power boost Relativistic particles gain at a reduced rate.`,
+            desc: `Passively gain 100% of the atoms you would get from resetting each second. Atomic Power boosts Relativistic particle gain at a reduced rate.`,
             cost: E(1e75),
             effect() {
                 let x = player.atom.atomic.max(1).log10().add(1).pow(0.4)
@@ -186,11 +186,11 @@ const ELEMENTS = {
             effDesc(x) { return format(x)+"x" },
         },
         {
-            desc: `Adds 1 base of Mass Dilation upgrade 1 effect.`,
+            desc: `Adds 1 base to Mass Dilation upgrade 1's effect.`,
             cost: E(1e80),
         },
         {
-            desc: `Hardened Challenge scaling weaker for each element bought.`,
+            desc: `Hardened Challenge scaling is weaker for each element bought.`,
             cost: E(1e85),
             effect() {
                 let x = E(0.99).pow(E(player.atom.elements.length).softcap(30,2/3,0)).max(0.5)
@@ -199,23 +199,23 @@ const ELEMENTS = {
             effDesc(x) { return format(E(1).sub(x).mul(100))+"% weaker" },
         },
         {
-            desc: `Hyper/Ultra Rank & Tickspeed scales 25% weaker.`,
+            desc: `Hyper/Ultra Rank & Tickspeed scale 25% weaker.`,
             cost: E(1e90),
         },
         {
-            desc: `Mass gain is raised to the power of 1.5th if you dilated mass.`,
+            desc: `Mass gain is raised to the power of 1.5th if you are Dilating mass.`,
             cost: E(1e97),
         },
         {
-            desc: `Proton powers effect is better.`,
+            desc: `Proton power effect is better.`,
             cost: E(1e100),
         },
         {
-            desc: `Electron powers effect is better. Passively gain 10% of each particle you would assign quarks.`,
+            desc: `Electron power's effect is better. Passively gain 10% of each particle you would get if you assigned quarks.`,
             cost: E(1e107),
         },
         {
-            desc: `Dilated mass boost Relativistic particles gain.`,
+            desc: `Dilated mass boosts Relativistic particle gain.`,
             cost: E(1e130),
             effect() {
                 let x = player.md.mass.add(1).pow(0.0125)
@@ -228,11 +228,11 @@ const ELEMENTS = {
             cost: E(1e140),
         },
         {
-            desc: `Add 50 more C8 maximum completions.`,
+            desc: `Add 50 more maximum C8 completions.`,
             cost: E(1e155),
         },
         {
-            desc: `Rage power boost Relativistic particles gain.`,
+            desc: `Rage Power boosts Relativistic particle gain.`,
             cost: E(1e175),
             effect() {
                 let x = player.rp.points.max(1).log10().add(1).pow(0.75)
@@ -241,7 +241,7 @@ const ELEMENTS = {
             effDesc(x) { return format(x)+"x" },
         },
         {
-            desc: `Mass from Black Hole boost dilated mass gain.`,
+            desc: `Mass from Black Hole boosts dilated mass gain.`,
             cost: E(1e210),
             effect() {
                 let x = player.bh.mass.max(1).log10().add(1).pow(0.8)
@@ -254,7 +254,7 @@ const ELEMENTS = {
             cost: E(1e225),
         },
         {
-            desc: `Super Tier scale weaker based on Tetr.`,
+            desc: `Super Tier scales weaker based on Tetr.`,
             cost: E(1e245),
             effect() {
                 let x = E(0.9).pow(player.ranks.tetr.softcap(6,0.5,0))
@@ -276,7 +276,7 @@ const ELEMENTS = {
             cost: E(1e285),
         },
         {
-            desc: `Collapsed star boost dilated mass gain.`,
+            desc: `Collapsed stars boost dilated mass gain.`,
             cost: E(1e303),
             effect() {
                 let x = player.stars.points.add(1).pow(0.5)
@@ -285,11 +285,11 @@ const ELEMENTS = {
             effDesc(x) { return format(x)+"x" },
         },
         {
-            desc: `Add 50 more C7 maximum completions.`,
+            desc: `Add 50 more maximum C7 completions.`,
             cost: E('e315'),
         },
         {
-            desc: `Collapsed star boost quark gain.`,
+            desc: `Collapsed stars boost quark gain.`,
             cost: E('e325'),
             effect() {
                 let x = player.stars.points.add(1).pow(1/3)
@@ -298,7 +298,7 @@ const ELEMENTS = {
             effDesc(x) { return format(x)+"x" },
         },
         {
-            desc: `You can now automatically buy mass dilation upgrades if you purchased any first. They no longer spent dilated mass.`,
+            desc: `You can now automatically buy mass dilation upgrades if you purchased any first. They no longer spend dilated mass.`,
             cost: E('e360'),
         },
         {
@@ -306,7 +306,7 @@ const ELEMENTS = {
             cost: E('e380'),
         },
         {
-            desc: `Collapsed star boost relativistic particles gain.`,
+            desc: `Collapsed stars boost relativistic particle gain.`,
             cost: E('e420'),
             effect() {
                 let x = player.stars.points.add(1).pow(0.15).min(1e20)
@@ -315,7 +315,7 @@ const ELEMENTS = {
             effDesc(x) { return format(x)+"x" },
         },
         {
-            desc: `Collapsed star's effect boost mass gain from the black hole at a reduced rate.`,
+            desc: `Collapsed star's effect boosts mass gain from black hole at a reduced rate.`,
             cost: E('e510'),
             effect() {
                 let x = tmp.stars?tmp.stars.effect.add(1).pow(0.02):E(1)
@@ -324,15 +324,15 @@ const ELEMENTS = {
             effDesc(x) { return format(x)+"x" },
         },
         {
-            desc: `Quarks gain is raised to the 1.05th power.`,
+            desc: `Quark gain is raised to the 1.05th power.`,
             cost: E('e610'),
         },
         {
-            desc: `Collapsed stars effect is 10% stronger.`,
+            desc: `Collapsed stars' effect is 10% stronger.`,
             cost: E('e800'),
         },
         {
-            desc: `Collapsed star boost last type of stars.`,
+            desc: `Collapsed stars boost the current rightmost type of star.`,
             cost: E('e1000'),
             effect() {
                 let x = player.stars.points.add(1).log10().add(1).pow(1.1)
@@ -345,11 +345,11 @@ const ELEMENTS = {
             cost: E('e1750'),
         },
         {
-            desc: `Mass gain softcap^2 is 10% weaker.`,
+            desc: `Mass gain squared softcap is 10% weaker.`,
             cost: E('e2400'),
         },
         {
-            desc: `Mass of black hole boost atomic powers gain at a reduced rate.`,
+            desc: `Mass of black hole boosts atomic power gain at a reduced rate.`,
             cost: E('e2800'),
             effect() {
                 let x = expMult(player.bh.mass.add(1),0.6)
@@ -362,7 +362,7 @@ const ELEMENTS = {
             cost: E('e4600'),
         },
         {
-            desc: `Collapsed stars boost all-star resources at a reduced rate.`,
+            desc: `Collapsed stars boost all star resources at a reduced rate.`,
             cost: E('e5200'),
             effect() {
                 let x = player.mass.max(1).log10().root(2)
@@ -371,15 +371,15 @@ const ELEMENTS = {
             effDesc(x) { return format(x)+"x" },
         },
         {
-            desc: `Hyper/Ultra BH Condenser & Cosmic Ray scale 25% weaker.`,
+            desc: `Hyper/Ultra BH Condenser & Cosmic Ray scales are 25% weaker.`,
             cost: E('e1.6e4'),
         },
         {
-            desc: `Add 200 more C8 maximum completions.`,
+            desc: `Add 200 more maximum C8 completions.`,
             cost: E('e2.2e4'),
         },
         {
-            desc: `Tickspeed power boost base from Star Booster at a reduced rate.`,
+            desc: `Tickspeed power boosts Star Booster exponent base at a reduced rate.`,
             cost: E('e3.6e4'),
             effect() {
                 let x = tmp.tickspeedEffect?tmp.tickspeedEffect.step.max(1).log10().div(10).max(1):E(1)
@@ -389,7 +389,7 @@ const ELEMENTS = {
             effDesc(x) { return format(x)+"x" },
         },
         {
-            desc: `Ultra Rank & Tickspeed scales weaker based on Tier.`,
+            desc: `Ultra Rank & Tickspeed scale weaker based on Tier.`,
             cost: E('e5.7e4'),
             effect() {
                 let x = E(0.975).pow(player.ranks.tier.pow(0.5))
@@ -398,19 +398,19 @@ const ELEMENTS = {
             effDesc(x) { return format(E(1).sub(x).mul(100))+"% weaker" },
         },
         {
-            desc: `The power from the mass of the BH formula is increased to 0.45.`,
+            desc: `The power from the mass of the BH formula is increased to 0.45.`, // I have no idea what this is trying to say.
             cost: E('e6.6e4'),
         },
         {
-            desc: `Add 100 more C7 maximum completions.`,
+            desc: `Add 100 more maximum C7 completions.`,
             cost: E('e7.7e4'),
         },
         {
-            desc: `Multiply Particle Powers gain by ^0.5 of its Particle's amount after softcap.`,
+            desc: `Multiply Particle Powers gain by ^0.5 of the Particle's amount after softcap.`,
             cost: E('e1.5e5'),
         },
         {
-            desc: `Ultra Rank scale 3 later for every Supernova.`,
+            desc: `Ultra Rank scaling starts 3 ranks later for every Supernova.`,
             cost: E('e2.5e5'),
             effect() {
                 let x = player.supernova.times.mul(3)
@@ -419,23 +419,23 @@ const ELEMENTS = {
             effDesc(x) { return format(x,0)+" later" },
         },
         {
-            desc: `Non-bonus Tickspeed is 25x effective.`,
+            desc: `Non-bonus Tickspeeds are 25x effective.`,
             cost: E('e3e5'),
         },
         {
-            desc: `Rewards from Challenges 3-4 & 8 are 50% effective.`,
+            desc: `Rewards from Challenges 3, 4, and 8 are 50% more effective.`,
             cost: E('e5e5'),
         },
         {
-            desc: `Add 200 more C7 & c8 maximum completions.`,
+            desc: `Add 200 more maximum C7 & C8 completions.`,
             cost: E('e8e5'),
         },
         {
-            desc: `Lanthanum's effect is twice stronger.`,
+            desc: `Lanthanum's effect is twice as strong.`,
             cost: E('e1.1e6'),
         },
         {
-            desc: `Collapsed star boost quarks gain.`,
+            desc: `Collapsed stars boost quark gain.`,
             cost: E('e1.7e6'),
             effect() {
                 let x = player.stars.points.add(1)
@@ -444,7 +444,7 @@ const ELEMENTS = {
             effDesc(x) { return format(x)+"x" },
         },
         {
-            desc: `Meta-Tickspeed start 2x later.`,
+            desc: `Meta-Tickspeed scaling starts 2x later.`,
             cost: E('e4.8e6'),
         },
         {
@@ -452,7 +452,7 @@ const ELEMENTS = {
             cost: E('e3.6e7'),
         },
         {
-            desc: `Add 200 more C7 & c8 maximum completions.`,
+            desc: `Add 200 more maximum C7 & C8 completions.`,
             cost: E('e6.9e7'),
         },
     ],
